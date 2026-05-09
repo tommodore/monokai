@@ -1,62 +1,99 @@
-Monokai Colorscheme
-----------------
+# Monokai Color Scheme
 
-## Installation
+[![Validate](https://github.com/tommodore/monokai/actions/workflows/validate.yml/badge.svg)](https://github.com/tommodore/monokai/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-#### MacOSX Terminal and iTerm
+A collection of Monokai color scheme files for terminals, editors, and IDEs.
 
-1. Clone the repository `git clone git://github.com/tommodore/monokai.git`.
-2. Open the `Monokai.terminal` or `Monokai.itermcolors` file to install.
-3. Optionally open up Terminal or iTerm  preferences for more options.
+The original Monokai color scheme was created by [Wimer Hazenberg](https://monokai.nl).
 
-#### KDE Konsole
+## Palette
 
-1. Copy the Konsole colorscheme (*.colorscheme) files to (KDE 4) ~/.kde/share/apps/konsole/ or (KDE 5) ~/.local/share/konsole/.
-2. Open Konsole and select Settings => Configure Profiles => Edit Profile => Appearance.
-3. Select the Monokai scheme file and save.
+| Name              | Hex       | Preview                                               |
+| ----------------- | --------- | ----------------------------------------------------- |
+| Background        | `#272822` | ![#272822](https://placehold.co/15/272822/272822.png) |
+| Foreground        | `#F8F8F2` | ![#F8F8F2](https://placehold.co/15/F8F8F2/F8F8F2.png) |
+| Selection         | `#49483E` | ![#49483E](https://placehold.co/15/49483E/49483E.png) |
+| Line Highlight    | `#3E3D31` | ![#3E3D31](https://placehold.co/15/3E3D31/3E3D31.png) |
+| Comment           | `#75715E` | ![#75715E](https://placehold.co/15/75715E/75715E.png) |
+| Red (keyword)     | `#F92672` | ![#F92672](https://placehold.co/15/F92672/F92672.png) |
+| Orange (variable) | `#FD971F` | ![#FD971F](https://placehold.co/15/FD971F/FD971F.png) |
+| Yellow (string)   | `#E6DB74` | ![#E6DB74](https://placehold.co/15/E6DB74/E6DB74.png) |
+| Green (function)  | `#A6E22E` | ![#A6E22E](https://placehold.co/15/A6E22E/A6E22E.png) |
+| Blue (type)       | `#66D9EF` | ![#66D9EF](https://placehold.co/15/66D9EF/66D9EF.png) |
+| Violet (constant) | `#AE81FF` | ![#AE81FF](https://placehold.co/15/AE81FF/AE81FF.png) |
+| Cyan (support)    | `#A1EFE4` | ![#A1EFE4](https://placehold.co/15/A1EFE4/A1EFE4.png) |
 
-#### KDE Kate
+> `palette.json` is the canonical source of truth for all color values.
 
-1. Open Kate and select Configurations => Configure Kate => Fonts and Colours
-2. Import and Select the Monokai scheme file and save.
+## Available Themes
 
-#### Emacs
+| Platform       | File                                                                                                                     | How to Install                                                                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| macOS Terminal | [`Terminal/Monokai.terminal`](Terminal/Monokai.terminal)                                                                 | Open the `.terminal` file                                                                                                                   |
+| iTerm2         | [`iTerm/Monokai.itermcolors`](iTerm/Monokai.itermcolors)                                                                 | Open the `.itermcolors` file, or import in iTerm → Preferences → Profiles → Colors → Color Presets                                          |
+| Alacritty      | [`alacritty/monokai.yml`](alacritty/monokai.yml)                                                                         | Copy to `~/.config/alacritty/monokai.yml`, import in `alacritty.yml`: `import: [~/.config/alacritty/monokai.yml]`                           |
+| Konsole (KDE)  | [`Konsole/monokai.colorscheme`](Konsole/monokai.colorscheme)                                                             | Copy to `~/.local/share/konsole/` (KDE 5) or `~/.kde/share/apps/konsole/` (KDE 4), select in Konsole → Settings → Edit Profile → Appearance |
+| Kate (KDE)     | [`Kate/monokai.katescheme`](Kate/monokai.katescheme)                                                                     | Kate → Settings → Configure Kate → Fonts & Colours → Import                                                                                 |
+| Vim            | [`vim/colors/monokai.vim`](vim/colors/monokai.vim)                                                                       | Copy to `~/.vim/colors/`, add `colorscheme monokai` to `.vimrc`                                                                             |
+| Neovim         | [`vim/colors/monokai.vim`](vim/colors/monokai.vim)                                                                       | Copy to `~/.config/nvim/colors/`                                                                                                            |
+| Emacs          | [`emacs/monokai-theme.el`](emacs/monokai-theme.el)                                                                       | Download to `~/.emacs.d/themes/`, add `(load-theme 'monokai t)` to config                                                                   |
+| Visual Studio  | [`VisualStudio/monokai.vssettings`](VisualStudio/monokai.vssettings) + [`monokai.vstheme`](VisualStudio/monokai.vstheme) | Tools → Import and Export Settings → Import                                                                                                 |
+| VS Code        | [`vscode/monokai.json`](vscode/monokai.json)                                                                             | Copy to `~/.vscode/extensions/` or use Command Palette → Preferences: Color Theme → Import                                                  |
+| JetBrains IDEs | [`jetbrains/monokai.icls`](jetbrains/monokai.icls)                                                                       | Copy to `~/.config/JetBrains/*/colors/` or Settings → Editor → Color Scheme → ⚙ → Import                                                    |
+| Atom           | (external)                                                                                                               | UI: [Atom Material](https://atom.io/themes/atom-material-ui), Syntax: [Material Monokai](https://atom.io/themes/material-monokai-syntax)    |
 
-1. Download `monokai-theme.el` to the directory `~/.emacs.d/themes/`
-2. Add this to your .emacs: `(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")`
-3. Now you can load the theme with the interactive function `load-theme` like this: `M-x load-theme RET monokai`
+## Screenshots
 
-Or simply use [Marmelade](http://marmalade-repo.org/) or [MELPA](http://melpa.milkbox.net/)
+> Place screenshots in [`screenshots/`](screenshots/). See [screenshots/README.md](screenshots/README.md).
 
-#### VIM
+## Project Structure
 
-Put `monokai.vim` file in your `~/.vim/colors/` directory and add the following line to your `~/.vimrc`:
+```
+monokai/
+├── palette.json          ← Single source of truth for all colors
+├── scripts/
+│   ├── generate.js       ← Generate themes from palette.json
+│   └── validate.js       ← Validate all files against palette.json
+├── screenshots/          ← Editor preview images
+├── Terminal/
+├── iTerm/
+├── Konsole/
+├── Kate/
+├── vim/colors/
+├── emacs/
+├── VisualStudio/
+├── vscode/
+├── jetbrains/
+├── alacritty/
+└── Atom/
+```
 
-    syntax enable
-    colorscheme monokai
+## Contributing
 
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Or simply use [vim-monokai](https://github.com/sickill/vim-monokai) module from [sickill](https://github.com/sickill) with [Vundle](https://github.com/gmarik/Vundle.vim).
+Regenerating themes from the palette:
 
-#### Atom
+```bash
+node scripts/generate.js
+```
 
-My preferred settings
+Validating all files:
 
-UI Theme: [Atom Material](https://atom.io/themes/atom-material-ui)
-
-Syntax Theme: [Material Monokai](https://atom.io/themes/material-monokai-syntax
-
-#### Visual Studio
-
-1. To apply, go to `Tools` -> `Import and Export Settings` -> Import selected environment settings.
+```bash
+node scripts/validate.js
+```
 
 ## License
 
-This project is not licensed and is free for anyone to use.
+[MIT](LICENSE). Free for anyone to use.
 
-## Credit
+## Credits
 
-Monokai Terminal and iTerm theme created by [Stephen Way](https://github.com/stephenway).
-
-The Monokai color scheme was created by Wimer Hazenberg, http://monokai.nl
-
+- **Wimer Hazenberg** — creator of the original Monokai color scheme
+- **Stephen Way** — Terminal and iTerm theme ports
+- **Kelvin Smith** — Emacs theme port
+- **sickill** — Vim port via [coloration](https://github.com/sickill/coloration)
+- All [contributors](https://github.com/tommodore/monokai/graphs/contributors)

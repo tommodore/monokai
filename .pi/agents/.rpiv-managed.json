@@ -1,0 +1,15 @@
+[
+  "claim-verifier.md",
+  "codebase-analyzer.md",
+  "codebase-locator.md",
+  "codebase-pattern-finder.md",
+  "diff-auditor.md",
+  "integration-scanner.md",
+  "peer-comparator.md",
+  "precedent-locator.md",
+  "scope-tracer.md",
+  "test-case-locator.md",
+  "thoughts-analyzer.md",
+  "thoughts-locator.md",
+  "web-search-researcher.md"
+]

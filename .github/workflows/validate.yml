@@ -1,0 +1,37 @@
+name: Validate
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate palette & theme files
+        run: node scripts/validate.js
+
+      - name: Verify themes are in sync (regen check)
+        run: |
+          node scripts/generate.js
+          git diff --exit-code --quiet \
+            vscode/monokai.json \
+            jetbrains/monokai.icls \
+            alacritty/monokai.yml \
+            && echo "✓ Generated files are up-to-date" \
+            || { echo "FAIL Generated files are out of sync with palette.json — re-run node scripts/generate.js"; exit 1; }
+
+      - name: Check JSON validity (palette, VS Code theme)
+        run: |
+          python3 -m json.tool palette.json > /dev/null
+          python3 -m json.tool vscode/monokai.json > /dev/null
+          echo "✓ JSON valid"

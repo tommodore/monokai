@@ -1,0 +1,14 @@
+{
+  "name": "monokai",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monokai color scheme for terminals and editors",
+  "scripts": {
+    "generate": "node scripts/generate.js",
+    "validate": "node scripts/validate.js"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

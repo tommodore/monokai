@@ -1,0 +1,32 @@
+# Monokai color scheme for Alacritty
+# Generated from palette.json — do not edit directly
+colors:
+  primary:
+    background: "#272822"
+    foreground: "#F8F8F2"
+  cursor:
+    text: "#272822"
+    cursor: "#F8F8F0"
+  selection:
+    text: "#F8F8F2"
+    background: "#49483E"
+  normal:
+    black:   "#272822"
+    red:     "#F92672"
+    green:   "#A6E22E"
+    yellow:  "#E6DB74"
+    blue:    "#66D9EF"
+    magenta: "#AE81FF"
+    cyan:    "#A1EFE4"
+    white:   "#F8F8F2"
+  bright:
+    black:   "#75715E"
+    red:     "#F92672"
+    green:   "#A6E22E"
+    yellow:  "#E6DB74"
+    blue:    "#66D9EF"
+    magenta: "#AE81FF"
+    cyan:    "#A1EFE4"
+    white:   "#FFFFFF"
+  indexed_colors:
+    - { index: 16, color: "#FD971F" }

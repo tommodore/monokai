@@ -33,6 +33,7 @@ The original Monokai color scheme was created by [Wimer Hazenberg](https://monok
 | -------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | macOS Terminal | [`Terminal/Monokai.terminal`](Terminal/Monokai.terminal)                                                                 | Open the `.terminal` file                                                                                                                   |
 | iTerm2         | [`iTerm/Monokai.itermcolors`](iTerm/Monokai.itermcolors)                                                                 | Open the `.itermcolors` file, or import in iTerm → Preferences → Profiles → Colors → Color Presets                                          |
+| WezTerm        | [`wezterm/monokai.toml`](wezterm/monokai.toml)                                                                           | Copy to `~/.config/wezterm/colors/monokai.toml`, add `color_scheme = "monokai"` to `wezterm.lua`                                           |
 | Alacritty      | [`alacritty/monokai.yml`](alacritty/monokai.yml)                                                                         | Copy to `~/.config/alacritty/monokai.yml`, import in `alacritty.yml`: `import: [~/.config/alacritty/monokai.yml]`                           |
 | Konsole (KDE)  | [`Konsole/monokai.colorscheme`](Konsole/monokai.colorscheme)                                                             | Copy to `~/.local/share/konsole/` (KDE 5) or `~/.kde/share/apps/konsole/` (KDE 4), select in Konsole → Settings → Edit Profile → Appearance |
 | Kate (KDE)     | [`Kate/monokai.katescheme`](Kate/monokai.katescheme)                                                                     | Kate → Settings → Configure Kate → Fonts & Colours → Import                                                                                 |
@@ -42,6 +43,7 @@ The original Monokai color scheme was created by [Wimer Hazenberg](https://monok
 | Visual Studio  | [`VisualStudio/monokai.vssettings`](VisualStudio/monokai.vssettings) + [`monokai.vstheme`](VisualStudio/monokai.vstheme) | Tools → Import and Export Settings → Import                                                                                                 |
 | VS Code        | [`vscode/monokai.json`](vscode/monokai.json)                                                                             | Copy to `~/.vscode/extensions/` or use Command Palette → Preferences: Color Theme → Import                                                  |
 | JetBrains IDEs | [`jetbrains/monokai.icls`](jetbrains/monokai.icls)                                                                       | Copy to `~/.config/JetBrains/*/colors/` or Settings → Editor → Color Scheme → ⚙ → Import                                                    |
+| pi-agent (TUI) | [`pi-theme/monokai.json`](pi-theme/monokai.json)                                                                         | Copy to `~/.pi/agent/themes/`, then select via `/settings` in pi                                                                             |
 | Atom           | (external)                                                                                                               | UI: [Atom Material](https://atom.io/themes/atom-material-ui), Syntax: [Material Monokai](https://atom.io/themes/material-monokai-syntax)    |
 
 ## Screenshots
@@ -66,6 +68,8 @@ monokai/
 ├── VisualStudio/
 ├── vscode/
 ├── jetbrains/
+├── wezterm/
+├── pi-theme/
 ├── alacritty/
 └── Atom/
 ```

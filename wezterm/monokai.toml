@@ -1,0 +1,74 @@
+# Monokai color scheme for WezTerm
+# Generated from palette.json — do not edit directly
+
+[colors]
+
+foreground = "#F8F8F2"
+background = "#272822"
+
+cursor_bg = "#F8F8F0"
+cursor_fg = "#272822"
+cursor_border = "#F8F8F0"
+
+selection_bg = "#49483E"
+selection_fg = "#F8F8F2"
+
+scrollbar_thumb = "#49483E"
+
+split = "#3E3D31"
+
+ansi = [
+  "#272822",
+  "#F92672",
+  "#A6E22E",
+  "#E6DB74",
+  "#66D9EF",
+  "#AE81FF",
+  "#A1EFE4",
+  "#F8F8F2",
+]
+
+brights = [
+  "#75715E",
+  "#F92672",
+  "#A6E22E",
+  "#E6DB74",
+  "#66D9EF",
+  "#AE81FF",
+  "#A1EFE4",
+  "#FFFFFF",
+]
+
+indexed = { 16 = "#FD971F" }
+
+[colors.tab_bar]
+background = "#272822"
+
+[colors.tab_bar.active_tab]
+bg_color = "#272822"
+fg_color = "#F8F8F2"
+intensity = "Normal"
+italic = false
+strikethrough = false
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#3E3D31"
+fg_color = "#75715E"
+intensity = "Normal"
+italic = false
+strikethrough = false
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#49483E"
+fg_color = "#F8F8F2"
+intensity = "Normal"
+italic = false
+strikethrough = false
+
+[colors.tab_bar.new_tab]
+bg_color = "#272822"
+fg_color = "#75715E"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#49483E"
+fg_color = "#F8F8F2"

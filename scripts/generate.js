@@ -200,16 +200,6 @@ function generateVSCode() {
 
 // ─── JetBrains .icls ────────────────────────────────────────────────────────
 function generateJetBrains() {
-	const e = (name, fg, bg, fontType) => {
-		const opts = [
-			`scheme="${name}"`,
-			fg ? `foreground="${fg}"` : "",
-			bg ? `background="${bg}""` : "",
-			fontType ? `fontType="${fontType}"` : "",
-		];
-		return `    <option ${opts.filter(Boolean).join(" ")} />`;
-	};
-
 	const lines = [
 		`<?xml version="1.0" encoding="UTF-8"?>`,
 		`<!DOCTYPE scheme PUBLIC "-//JetBrains//DTD IDE 6.0 Scheme//EN" "">`,
@@ -595,6 +585,175 @@ function generateJetBrains() {
 	console.log("✓ Generated jetbrains/monokai.icls");
 }
 
+// ─── WezTerm TOML ─────────────────────────────────────────────────────────
+function generateWezTerm() {
+	const h = (name) => `"${hex(name)}"`;
+	const toml = `# Monokai color scheme for WezTerm
+# Generated from palette.json — do not edit directly
+
+[colors]
+
+foreground = ${h("foreground")}
+background = ${h("background")}
+
+cursor_bg = ${h("cursor")}
+cursor_fg = ${h("background")}
+cursor_border = ${h("cursor")}
+
+selection_bg = ${h("selection")}
+selection_fg = ${h("foreground")}
+
+scrollbar_thumb = ${h("selection")}
+
+split = ${h("line-highlight")}
+
+ansi = [
+  ${h("ansi-black")},
+  ${h("ansi-red")},
+  ${h("ansi-green")},
+  ${h("ansi-yellow")},
+  ${h("ansi-blue")},
+  ${h("ansi-magenta")},
+  ${h("ansi-cyan")},
+  ${h("ansi-white")},
+]
+
+brights = [
+  ${h("ansi-bright-black")},
+  ${h("ansi-bright-red")},
+  ${h("ansi-bright-green")},
+  ${h("ansi-bright-yellow")},
+  ${h("ansi-bright-blue")},
+  ${h("ansi-bright-magenta")},
+  ${h("ansi-bright-cyan")},
+  ${h("ansi-bright-white")},
+]
+
+indexed = { 16 = ${h("orange")} }
+
+[colors.tab_bar]
+background = ${h("background")}
+
+[colors.tab_bar.active_tab]
+bg_color = ${h("background")}
+fg_color = ${h("foreground")}
+intensity = "Normal"
+italic = false
+strikethrough = false
+
+[colors.tab_bar.inactive_tab]
+bg_color = ${h("line-highlight")}
+fg_color = ${h("comment")}
+intensity = "Normal"
+italic = false
+strikethrough = false
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = ${h("selection")}
+fg_color = ${h("foreground")}
+intensity = "Normal"
+italic = false
+strikethrough = false
+
+[colors.tab_bar.new_tab]
+bg_color = ${h("background")}
+fg_color = ${h("comment")}
+
+[colors.tab_bar.new_tab_hover]
+bg_color = ${h("selection")}
+fg_color = ${h("foreground")}
+`;
+
+	const outDir = path.join(__dirname, "..", "wezterm");
+	fs.mkdirSync(outDir, { recursive: true });
+	fs.writeFileSync(path.join(outDir, "monokai.toml"), toml);
+	console.log("✓ Generated wezterm/monokai.toml");
+}
+
+// ─── Pi Agent Theme ─────────────────────────────────────────────────────────
+function generatePi() {
+	// Map pi theme tokens to palette color names
+	const piTokens = {
+		accent: "green",
+		border: "status-bg",
+		borderAccent: "green",
+		borderMuted: "comment",
+		success: "green",
+		error: "red",
+		warning: "orange",
+		muted: "comment",
+		dim: "comment",
+		text: "",
+		thinkingText: "comment",
+		selectedBg: "selection",
+		userMessageBg: "selection",
+		userMessageText: "",
+		customMessageBg: "line-highlight",
+		customMessageText: "",
+		customMessageLabel: "green",
+		toolPendingBg: "line-highlight",
+		toolSuccessBg: "line-highlight",
+		toolErrorBg: "line-highlight",
+		toolTitle: "cyan",
+		toolOutput: "",
+		mdHeading: "orange",
+		mdLink: "blue",
+		mdLinkUrl: "comment",
+		mdCode: "yellow",
+		mdCodeBlock: "",
+		mdCodeBlockBorder: "comment",
+		mdQuote: "comment",
+		mdQuoteBorder: "comment",
+		mdHr: "comment",
+		mdListBullet: "green",
+		toolDiffAdded: "green",
+		toolDiffRemoved: "red",
+		toolDiffContext: "comment",
+		syntaxComment: "comment",
+		syntaxKeyword: "red",
+		syntaxFunction: "green",
+		syntaxVariable: "orange",
+		syntaxString: "yellow",
+		syntaxNumber: "violet",
+		syntaxType: "blue",
+		syntaxOperator: "red",
+		syntaxPunctuation: "comment",
+		thinkingOff: "comment",
+		thinkingMinimal: "comment",
+		thinkingLow: "blue",
+		thinkingMedium: "cyan",
+		thinkingHigh: "yellow",
+		thinkingXhigh: "red",
+		bashMode: "orange",
+	};
+
+	function resolve(name) {
+		if (name === "") return "";
+		const h = hex(name);
+		return h ? h : "";
+	}
+
+	const colors = {};
+	for (const [token, paletteName] of Object.entries(piTokens)) {
+		colors[token] = resolve(paletteName);
+	}
+
+	const theme = {
+		$schema:
+			"https://raw.githubusercontent.com/earendil-works/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+		name: "monokai",
+		colors,
+	};
+
+	const outDir = path.join(__dirname, "..", "pi-theme");
+	fs.mkdirSync(outDir, { recursive: true });
+	fs.writeFileSync(
+		path.join(outDir, "monokai.json"),
+		JSON.stringify(theme, null, 2),
+	);
+	console.log("✓ Generated pi-theme/monokai.json");
+}
+
 // ─── Alacritty YAML ─────────────────────────────────────────────────────────
 function generateAlacritty() {
 	const h = (name) => `"${hex(name)}"`;
@@ -641,4 +800,6 @@ colors:
 // ─── Run ────────────────────────────────────────────────────────────────────
 generateVSCode();
 generateJetBrains();
+generateWezTerm();
+generatePi();
 generateAlacritty();

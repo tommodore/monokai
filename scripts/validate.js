@@ -44,6 +44,8 @@ const expectedFiles = [
 	"VisualStudio/monokai.vstheme",
 	"vscode/monokai.json",
 	"jetbrains/monokai.icls",
+	"wezterm/monokai.toml",
+	"pi-theme/monokai.json",
 	"alacritty/monokai.yml",
 	"palette.json",
 	"LICENSE",
@@ -64,6 +66,8 @@ for (const f of expectedFiles) {
 const generatedFiles = [
 	"vscode/monokai.json",
 	"jetbrains/monokai.icls",
+	"wezterm/monokai.toml",
+	"pi-theme/monokai.json",
 	"alacritty/monokai.yml",
 ];
 
